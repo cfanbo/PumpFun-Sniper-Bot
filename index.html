@@ -33,6 +33,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         nav {
@@ -70,7 +71,7 @@
         
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            padding: 4rem 0 7rem 0;
             color: white;
         }
         
@@ -86,20 +87,146 @@
             opacity: 0.9;
         }
         
+        .hero-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-button {
             display: inline-block;
             background: #ff6b6b;
             color: white;
-            padding: 15px 30px;
+            padding: 18px 55px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 18px 55px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .download-button:hover:before {
+            left: 100%;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+            background: #218838;
+        }
+
+        .download-button-large {
+            display: inline-block;
+            background-color: #5a6fd8;
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            color: white;
+            padding: 18px 55px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-button-large:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .download-button-large:hover:before {
+            left: 100%;
+        }
+        
+        .download-button-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #5a6fd8 0%, #694a90 100%);
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%) !important;
+            padding: 6rem 0;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .download-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .download-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .download-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .download-feature span {
+            font-size: 1.2rem;
         }
         
         .features {
@@ -156,7 +283,7 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
         
@@ -165,6 +292,26 @@
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* 禁用快速开始区域的悬停效果 */
+        #usage .tech-item {
+            cursor: default;
+            margin-bottom: 2rem;
+        }
+
+        #usage .tech-item:hover {
+            transform: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
         }
         
         .tech-item h4 {
@@ -236,6 +383,31 @@
             .providers-grid {
                 grid-template-columns: 1fr;
             }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-features {
+                gap: 1.5rem;
+            }
+
+            .download-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .download-button,
+            .cta-button {
+                font-size: 1rem;
+                padding: 15px 25px;
+                width: 100%;
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -244,8 +416,9 @@
         <nav class="container">
             <a href="#" class="logo">🤖 PumpFun Sniper Bot</a>
             <ul class="nav-links">
+                <li><a href="#download">免费下载</a></li>
                 <li><a href="#features">功能特性</a></li>
-                <li><a href="#tech">技术栈</a></li>
+                <li><a href="#tech">技术架构</a></li>
                 <li><a href="#providers">服务商</a></li>
                 <li><a href="#usage">使用说明</a></li>
             </ul>
@@ -256,8 +429,39 @@
         <section class="hero">
             <div class="container">
                 <h1>PumpFun Sniper Bot</h1>
-                <p>智能化 Solana 代币狙击机器人，支持多种交易策略和加速服务</p>
-                <a href="#features" class="cta-button">了解更多</a>
+                <p>完全免费且智能化 Solana 代币狙击机器人，支持多种交易策略和加速服务</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/cfanbo/PumpFun-Sniper-Bot/releases" class="download-button" target="_blank">免费下载</a>
+                    <a href="#features" class="cta-button">了解更多</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section" id="download">
+            <div class="container">
+                <h2>立即免费下载</h2>
+                <p>免费、高效的 Solana 代币狙击机器人</p>
+                <div class="download-features">
+                    <div class="download-feature">
+                        <span>✅</span>
+                        <span>完全免费</span>
+                    </div>
+                    <div class="download-feature">
+                        <span>⚡</span>
+                        <span>高性能</span>
+                    </div>
+                    <div class="download-feature">
+                        <span>⚔️</span>
+                        <span>并发上链</span>
+                    </div>
+                    <div class="download-feature">
+                        <span>🔐</span>
+                        <span>安全可靠</span>
+                    </div>
+                </div>
+                <a href="https://github.com/cfanbo/PumpFun-Sniper-Bot/releases" class="download-button-large" target="_blank">
+                    🚀  立即下载 
+                </a>
             </div>
         </section>
 
@@ -273,17 +477,17 @@
                     <div class="feature-card">
                         <div class="feature-icon">🎯</div>
                         <h3>智能策略</h3>
-                        <p>内置多种交易策略：价格趋势分析、持仓统计、交易频率检测、垃圾信息过滤等</p>
+                        <p>内置多种交易策略：价格趋势分析、持仓统计、交易频率检测、止盈止损、timeout、gibberish检测、垃圾信息过滤等</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
                         <h3>Durable Nonce 交易</h3>
-                        <p>支持 Solana Durable Nonce Transaction，确保同一笔交易只支付一次费用，提高交易成功率和并发处理能力</p>
+                        <p>支持 Durable Nonce 交易，确保同一笔交易只支付一次费用，多路上链，大大提高交易成功率和并发处理能力</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📊</div>
                         <h3>实时监控</h3>
-                        <p>实时监控 PumpFun 平台新代币发布，自动执行交易策略</p>
+                        <p>实时监控 PumpFun 平台新代币发布，自动执行交易策略，并自动买入与卖出</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🛡️</div>
@@ -372,6 +576,9 @@ front_running_protection = true
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://github.com/cfanbo/PumpFun-Sniper-Bot/blob/main/README.md" class="cta-button" target="_blank">了解详情</a>
+                </div>
             </div>
         </section>
 
@@ -379,23 +586,15 @@ front_running_protection = true
             <div class="container">
                 <h2>快速开始</h2>
                 <div class="tech-item">
-                    <h4>1. 编译运行</h4>
-                    <div class="code-block"># 调试模式运行
-RUST_LOG=bot=debug,info cargo run
-
-# 生产模式编译
-cargo build --release</div>
-                </div>
-                <div class="tech-item">
-                    <h4>2. 配置文件</h4>
-                    <div class="code-block"># 复制配置模板
-cp config.example.toml config.toml
+                    <h4>1. 配置文件</h4>
+                    <div class="code-block"># 创建配置文件
+./bot config
 
 # 编辑配置文件
 vim config.toml</div>
                 </div>
                 <div class="tech-item">
-                    <h4>3. Durable Nonce 配置</h4>
+                    <h4>2. Durable Nonce 配置</h4>
                     <div class="code-block">[base.durable_nonce]
 enable = true
 startup_update_nonce = false
@@ -406,12 +605,23 @@ authority = "[your_authority_private_key]"
 payer = "[your_payer_private_key]"</div>
                 </div>
                 <div class="tech-item">
-                    <h4>4. 启动服务</h4>
+                    <h4>3. 启动服务</h4>
                     <div class="code-block"># 运行主程序
 ./bot run
 
 # 检查版本
 ./bot version</div>
+                </div>
+                <div class="tech-item">
+                    <h4>4. 软件升级</h4>
+                    <div class="code-block"># 升级软件到最新版本
+./bot update</div>
+                </div>
+                <div class="tech-item">
+                    <h4>5. Debug日志</h4>
+                    <div class="code-block"># 调试模式运行
+RUST_LOG=bot=debug,info ./bot
+</div>
                 </div>
             </div>
         </section>
@@ -439,12 +649,14 @@ payer = "[your_payer_private_key]"</div>
             });
         });
 
-        // 滚动时添加 header 阴影
+        // 滚动时添加 header 背景和阴影
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
             } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
                 header.style.boxShadow = 'none';
             }
         });
